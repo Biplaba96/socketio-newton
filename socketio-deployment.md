@@ -10,7 +10,7 @@ proxy_set_header Connection “upgrade”;
 
 ## troubleshoot
 
-socket.io uses its specific way of connection, to the request it always add `/socket.io` prefix to all of its request including the connection one in the default request path, for correctly redirecting we are writing the regular expression `rewrite ^/socket/(.*) /$1 break;` for proxy rewrting the path else `/socket.io/*` will always become a unknown route for node backend
+socket.io uses its specific way of connection, it always add `/socket.io` prefix to all of its request including the connection one in the default url path, for correctly redirecting we are using the regular expression `rewrite ^/socket/(.*) /$1 break;` for proxy rewriting else `/socket.io/*` will always become a unknown route.
 
 ### correct configurations
 
